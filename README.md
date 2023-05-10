@@ -56,10 +56,44 @@ speed of sound in the air at 20ºC (68ºF) = 343m/s
 
 ### PROGRAM 
 
+``` python
+#define trigPin 10
+#define echoPin 9
+
+long duration;
+int distance;
+
+void setup() {
+  	pinMode(trigPin, OUTPUT);
+  	pinMode(echoPin, INPUT);
+  	Serial.begin(9600);
+}
+
+void loop() {
+  digitalWrite(trigPin, LOW);
+  delayMicroseconds(2);
+  digitalWrite(trigPin, HIGH);
+  delayMicroseconds(10);
+  digitalWrite(trigPin, LOW);
+  duration = pulseIn(echoPin, HIGH);
+  distance = duration * 0.0343 / 2;
+  distance = round(distance);
+  Serial.print("Distance: ");
+  Serial.print(distance);
+  Serial.println(" cm");
+  delay(100);
+}
+
+```
 
 
 
 
+
+
+### Ouptut:
+
+![image](https://raw.githubusercontent.com/SanjayKumar-M/Introduction-To-Rootics/main/Screenshot%20(28).png)
 
 ### Distance vs measurement table 
 
@@ -88,6 +122,6 @@ speed of sound in the air at 20ºC (68ºF) = 343m/s
 
 ### RESULTS
 
-
+Thus the Interfacing digital output with arduino ultrasonic sensor was performed and verified successfully.
 
  
